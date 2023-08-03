@@ -28,3 +28,30 @@ function playRound(player, computer) {
         }
     }
 }
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let roundResult
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase();
+        const computerSelection = getComputerChoice();
+        roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult.includes("Win!")) {
+            playerScore++;
+        } else if (roundResult.includes("Lose!")) {
+            computerScore++
+        }
+        alert(roundResult);
+    }
+
+    if (playerScore > computerScore) {
+        return `You won ${playerScore} to ${computerScore}`
+    } else if (playerScore < computerScore) {
+        return `You lost ${computerScore} to ${playerScore}`
+    } else {
+        return "It's a Draw"
+    }
+}
+
+
